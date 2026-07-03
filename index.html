@@ -3,22 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruth | The Brown Jacket Day</title>
+    <title>Ruth | 3 Months Together</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ink: #231f2b;
-            --wine: #7b1e3d;
-            --rose: #d94f70;
-            --blush: #ffe1e8;
-            --petal: #fff7f2;
-            --sage: #6c8a76;
-            --gold: #c99b4f;
-            --paper: rgba(255, 252, 247, 0.9);
-            --line: rgba(35, 31, 43, 0.14);
-            --shadow: 0 24px 70px rgba(35, 31, 43, 0.18);
+            --ink: #271f35;
+            --accent: #ff7aa9;
+            --accent-2: #ffd6e8;
+            --wine: #8e245f;
+            --rose: #e45f8f;
+            --sun: #f4c95d;
+            --leaf: #397d75;
+            --mint: #d8f2ec;
+            --cream: #fff8fb;
+            --lilac: #efe4ff;
+            --sky: #e2f4ff;
+            --line: rgba(39, 31, 53, 0.14);
+            --soft: rgba(255, 255, 255, 0.72);
+            --shadow: 0 22px 70px rgba(80, 31, 81, 0.18);
         }
 
         * {
@@ -35,9 +40,10 @@
             font-family: "Inter", sans-serif;
             color: var(--ink);
             background:
-                radial-gradient(circle at 12% 8%, rgba(217, 79, 112, 0.22), transparent 32%),
-                radial-gradient(circle at 92% 12%, rgba(108, 138, 118, 0.24), transparent 30%),
-                linear-gradient(135deg, #fff7f2 0%, #ffe1e8 42%, #edf5ed 100%);
+                radial-gradient(circle at 14% 18%, rgba(228, 95, 143, 0.3), transparent 30%),
+                radial-gradient(circle at 86% 12%, rgba(57, 125, 117, 0.24), transparent 28%),
+                radial-gradient(circle at 70% 82%, rgba(244, 201, 93, 0.24), transparent 30%),
+                linear-gradient(125deg, #fff8fb 0%, #efe4ff 40%, #e2f4ff 72%, #d8f2ec 100%);
             overflow-x: hidden;
         }
 
@@ -45,22 +51,21 @@
             content: "";
             position: fixed;
             inset: 0;
-            pointer-events: none;
+            z-index: -1;
             background-image:
-                linear-gradient(rgba(255, 255, 255, 0.28) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
-            background-size: 44px 44px;
-            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.62), transparent 82%);
+                linear-gradient(rgba(142, 36, 95, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(57, 125, 117, 0.05) 1px, transparent 1px);
+            background-size: 42px 42px;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.72), transparent);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
         }
 
         button {
             font: inherit;
-        }
-
-        .site-shell {
-            min-height: 100vh;
-            display: grid;
-            grid-template-rows: auto 1fr auto;
         }
 
         .topbar {
@@ -70,15 +75,15 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 16px;
-            padding: 16px clamp(16px, 4vw, 44px);
-            background: rgba(255, 247, 242, 0.78);
-            border-bottom: 1px solid rgba(35, 31, 43, 0.08);
+            gap: 18px;
+            padding: 14px clamp(16px, 4vw, 48px);
+            border-bottom: 1px solid rgba(37, 31, 40, 0.08);
+            background: rgba(255, 248, 251, 0.78);
             backdrop-filter: blur(18px);
         }
 
         .brand {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 10px;
             min-width: 0;
@@ -88,382 +93,589 @@
         }
 
         .brand-mark {
-            width: 34px;
-            height: 34px;
+            width: 36px;
+            height: 36px;
             display: grid;
             place-items: center;
             border-radius: 50%;
             color: #fff;
-            background: linear-gradient(145deg, var(--wine), var(--rose));
-            box-shadow: 0 10px 24px rgba(123, 30, 61, 0.3);
+            background: linear-gradient(145deg, var(--accent), var(--rose));
+            box-shadow: 0 12px 26px rgba(127, 29, 63, 0.28);
+            transition: transform 260ms ease;
+            font-size: 18px;
         }
 
-        .chapter-dots {
+        .brand-mark:hover { transform: scale(1.06) rotate(-6deg); }
+
+        .topbar nav {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
-        .chapter-dot {
-            width: 10px;
-            height: 10px;
-            border: 0;
-            border-radius: 50%;
-            background: rgba(35, 31, 43, 0.22);
-            cursor: pointer;
-            transition: transform 180ms ease, width 180ms ease, background 180ms ease;
+        .topbar a {
+            color: rgba(37, 31, 40, 0.72);
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            text-transform: uppercase;
         }
 
-        .chapter-dot.is-active {
-            width: 28px;
-            border-radius: 999px;
-            background: var(--wine);
-        }
-
-        .book {
-            width: min(1180px, calc(100vw - 32px));
-            margin: 28px auto;
-            border: 1px solid rgba(255, 255, 255, 0.62);
-            border-radius: 28px;
-            box-shadow: var(--shadow);
-            background: var(--paper);
-            overflow: hidden;
-        }
-
-        .slider {
-            display: flex;
-            transition: transform 720ms cubic-bezier(0.76, 0, 0.24, 1);
-        }
-
-        .chapter {
-            width: 100%;
-            flex: 0 0 100%;
-            min-height: min(720px, calc(100vh - 148px));
+        .hero {
+            min-height: calc(100vh - 66px);
             display: grid;
-            grid-template-columns: minmax(0, 1.1fr) minmax(330px, 0.9fr);
-            background:
-                linear-gradient(120deg, rgba(255, 255, 255, 0.28), transparent 34%),
-                var(--paper);
+            grid-template-columns: minmax(0, 1fr) minmax(340px, 0.62fr);
+            gap: clamp(24px, 5vw, 72px);
+            align-items: center;
+            width: min(1180px, calc(100vw - 32px));
+            margin: 0 auto;
+            padding: clamp(26px, 5vw, 64px) 0;
         }
 
-        .chapter.cover {
-            grid-template-columns: minmax(0, 1fr) minmax(360px, 0.78fr);
-        }
-
-        .photo-stage {
+        .hero-media {
             position: relative;
-            min-height: 540px;
-            background: #241923;
+            min-height: min(720px, calc(100vh - 132px));
+            border-radius: 8px;
             overflow: hidden;
+            box-shadow: var(--shadow);
+            background: #2b2134;
         }
 
-        .photo-stage::after {
+        .hero-media img {
+            width: 100%;
+            height: 100%;
+            min-height: inherit;
+            object-fit: cover;
+            filter: saturate(1.04) contrast(1.02);
+        }
+
+        .hero-media::after {
             content: "";
             position: absolute;
             inset: 0;
-            pointer-events: none;
-            background:
-                linear-gradient(to top, rgba(35, 31, 43, 0.62), transparent 42%),
-                linear-gradient(to right, rgba(35, 31, 43, 0.18), transparent 38%);
+            background: linear-gradient(to top, rgba(37, 31, 40, 0.74), rgba(37, 31, 40, 0.08) 54%, transparent);
         }
 
-        .hero-photo,
-        .main-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            filter: saturate(1.05) contrast(1.02);
-        }
-
-        .cover .hero-photo {
-            object-position: center 35%;
-        }
-
-        @media (min-width: 901px) {
-            .cover .photo-label {
-                top: clamp(26px, 4vw, 48px);
-                bottom: auto;
-            }
-        }
-
-        .photo-label {
+        .hero-caption {
             position: absolute;
             left: clamp(18px, 4vw, 42px);
+            right: clamp(18px, 4vw, 42px);
             bottom: clamp(18px, 4vw, 42px);
             z-index: 2;
-            max-width: 460px;
             color: #fff;
         }
 
-        .photo-label span {
-            display: inline-block;
-            margin-bottom: 12px;
-            padding: 8px 12px;
-            border: 1px solid rgba(255, 255, 255, 0.42);
-            border-radius: 999px;
-            background: rgba(35, 31, 43, 0.34);
-            font-size: 0.72rem;
-            font-weight: 800;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            backdrop-filter: blur(12px);
-        }
-
-        .photo-label h1,
-        .photo-label h2 {
-            margin: 0;
-            max-width: 10ch;
-            font-family: "Cormorant Garamond", serif;
-            font-size: clamp(4.8rem, 9vw, 8.8rem);
-            font-weight: 600;
-            line-height: 0.82;
-            letter-spacing: 0;
-            text-shadow: 0 12px 34px rgba(0, 0, 0, 0.34);
-        }
-
-        .chapter-copy {
-            min-width: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 28px;
-            padding: clamp(26px, 5vw, 58px);
-        }
-
-        .kicker {
+        .eyebrow {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             color: var(--wine);
-            font-size: 0.75rem;
-            font-weight: 800;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-        }
-
-        .kicker::before {
-            content: "";
-            width: 34px;
-            height: 2px;
-            background: var(--gold);
-        }
-
-        .chapter-copy h2,
-        .cover-copy h1 {
-            margin: 0 0 18px;
-            font-family: "Cormorant Garamond", serif;
-            font-size: clamp(2.7rem, 5vw, 5.4rem);
-            font-weight: 600;
-            line-height: 0.92;
-            letter-spacing: 0;
-        }
-
-        .chapter-copy p {
-            margin: 0;
-            color: rgba(35, 31, 43, 0.76);
-            font-size: clamp(1rem, 1.5vw, 1.18rem);
-            line-height: 1.85;
-        }
-
-        .chapter-copy .letter {
-            padding-left: 18px;
-            border-left: 3px solid var(--rose);
-            font-family: "Cormorant Garamond", serif;
-            font-size: clamp(1.35rem, 2.3vw, 1.82rem);
-            line-height: 1.45;
-            color: var(--ink);
-        }
-
-        .closing-blessing {
-            margin-top: 20px;
-            padding: 18px 20px;
-            border: 1px solid rgba(123, 30, 61, 0.18);
-            border-left: 4px solid var(--wine);
-            border-radius: 14px;
-            background: rgba(255, 225, 232, 0.38);
-        }
-
-        .closing-blessing strong {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--wine);
-            font-size: 0.74rem;
+            font-size: 0.76rem;
             font-weight: 800;
             letter-spacing: 0.16em;
             text-transform: uppercase;
         }
 
-        .closing-blessing p {
-            font-family: "Cormorant Garamond", serif;
-            font-size: clamp(1.25rem, 2vw, 1.62rem);
-            line-height: 1.42;
-            color: var(--ink);
+        .eyebrow::before {
+            content: "";
+            width: 34px;
+            height: 2px;
+            background: var(--sun);
         }
 
-        .memory-strip {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-
-        .memory-strip figure {
-            position: relative;
-            margin: 0;
-            aspect-ratio: 4 / 5;
-            border-radius: 18px;
-            overflow: hidden;
-            background: #f5dbe1;
-            box-shadow: 0 12px 26px rgba(35, 31, 43, 0.1);
-        }
-
-        .memory-strip img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .memory-strip figcaption {
-            position: absolute;
-            inset: auto 8px 8px 8px;
-            padding: 7px 8px;
-            border-radius: 999px;
+        .hero-caption .eyebrow {
             color: #fff;
-            background: rgba(35, 31, 43, 0.52);
-            font-size: clamp(0.52rem, 1.4vw, 0.68rem);
-            font-weight: 700;
-            text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            backdrop-filter: blur(10px);
         }
 
-        .cover-copy {
-            min-width: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 22px;
-            padding: clamp(28px, 5vw, 62px);
-        }
-
-        .cover-copy p {
+        .hero-copy h1,
+        .hero-caption h1,
+        .section-heading h2,
+        .promise h3,
+        .game-panel h2,
+        .scripture-card strong {
             margin: 0;
-            color: rgba(35, 31, 43, 0.74);
-            font-size: clamp(1.05rem, 1.6vw, 1.22rem);
+            font-family: "Cormorant Garamond", serif;
+            font-weight: 600;
+            line-height: 0.94;
+            letter-spacing: 0;
+        }
+
+        .hero-copy h1 {
+            font-size: clamp(4rem, 8vw, 8.4rem);
+        }
+
+        .hero-caption h1 {
+            max-width: 8ch;
+            font-size: clamp(4.2rem, 9vw, 8.6rem);
+            text-shadow: 0 12px 34px rgba(0, 0, 0, 0.42);
+            font-family: 'Great Vibes', 'Cormorant Garamond', serif;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-copy p,
+        .section-heading p,
+        .promise p,
+        .game-panel p,
+        .scripture-card p,
+        .letter p {
+            color: rgba(37, 31, 40, 0.74);
+            font-size: clamp(1rem, 1.5vw, 1.18rem);
             line-height: 1.8;
+        }
+
+        .hero-copy {
+            min-width: 0;
+        }
+
+        .hero-copy p {
+            margin: 22px 0 0;
         }
 
         .love-counter {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 10px;
-            margin-top: 8px;
+            margin: 28px 0;
         }
 
         .time-card {
             min-width: 0;
-            padding: 14px 10px;
+            padding: 16px 10px;
             border: 1px solid var(--line);
-            border-radius: 16px;
-            background: rgba(255, 255, 255, 0.58);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.68);
             text-align: center;
+            box-shadow: 0 10px 24px rgba(37, 31, 40, 0.07);
         }
 
         .time-card strong {
             display: block;
             color: var(--wine);
-            font-size: clamp(1.2rem, 2.4vw, 1.75rem);
+            font-size: clamp(1.4rem, 3vw, 2.3rem);
+            line-height: 1;
         }
 
         .time-card span {
             display: block;
-            margin-top: 4px;
-            color: rgba(35, 31, 43, 0.58);
+            margin-top: 6px;
+            color: rgba(37, 31, 40, 0.62);
             font-size: 0.66rem;
             font-weight: 800;
-            letter-spacing: 0.14em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
         }
 
-        .actions,
-        .chapter-nav {
+        .button-row {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            flex-wrap: wrap;
             gap: 12px;
-            padding-top: 22px;
-            border-top: 1px solid var(--line);
         }
 
-        .nav-button {
-            min-height: 44px;
+        .button,
+        .yes-button,
+        .no-button {
+            min-height: 46px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
             border: 0;
             border-radius: 999px;
             padding: 0 18px;
             color: #fff;
             background: var(--ink);
             font-weight: 800;
+            text-decoration: none;
             cursor: pointer;
-            box-shadow: 0 12px 26px rgba(35, 31, 43, 0.2);
-            transition: transform 180ms ease, background 180ms ease;
+            box-shadow: 0 12px 28px rgba(37, 31, 40, 0.2);
+            transition: transform 180ms ease, background 180ms ease, opacity 180ms ease;
+            border-radius: 14px;
+            padding: 0 20px;
         }
 
-        .nav-button:hover {
+        .button:hover,
+        .yes-button:hover {
             transform: translateY(-2px);
-            background: var(--wine);
+            background: linear-gradient(90deg, var(--accent), var(--rose));
         }
 
-        .nav-button.secondary {
+        .button.secondary,
+        .no-button {
             color: var(--ink);
-            background: rgba(255, 255, 255, 0.64);
+            background: rgba(255, 255, 255, 0.72);
             border: 1px solid var(--line);
             box-shadow: none;
         }
 
-        .chapter-count {
-            color: rgba(35, 31, 43, 0.58);
-            font-size: 0.76rem;
+        section {
+            width: min(1180px, calc(100vw - 32px));
+            margin: 0 auto;
+            padding: clamp(54px, 8vw, 104px) 0;
+        }
+
+        .section-heading {
+            max-width: 760px;
+            margin-bottom: 28px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2.8rem, 6vw, 6.2rem);
+        }
+
+        .section-heading p {
+            margin: 18px 0 0;
+        }
+
+        .promise-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .promise {
+            min-width: 0;
+            padding: clamp(20px, 3vw, 30px);
+            border: 1px solid rgba(37, 31, 40, 0.11);
+            border-radius: 8px;
+            background: var(--soft);
+            box-shadow: 0 16px 34px rgba(37, 31, 40, 0.08);
+        }
+
+        .promise h3 {
+            color: var(--wine);
+            font-size: clamp(1.9rem, 3vw, 3rem);
+        }
+
+        .promise p {
+            margin: 14px 0 0;
+        }
+
+        .photo-garden {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 12px;
+        }
+
+        .photo-card {
+            position: relative;
+            min-height: 280px;
+            grid-column: span 4;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #eaddec;
+            box-shadow: 0 18px 42px rgba(37, 31, 40, 0.12);
+        }
+
+        .photo-card.large {
+            grid-column: span 6;
+            min-height: 420px;
+        }
+
+        .photo-card.tall {
+            min-height: 480px;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            inset: 0;
+            object-fit: cover;
+            transition: transform 360ms cubic-bezier(.2,.9,.3,1), filter 240ms ease;
+            cursor: pointer;
+        }
+
+        .photo-card img:hover { transform: scale(1.06) rotate(-1deg); filter: brightness(1.04) saturate(1.04); }
+
+        .photo-card figcaption {
+            position: absolute;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            z-index: 2;
+            padding: 10px 12px;
+            border-radius: 999px;
+            color: #fff;
+            background: rgba(37, 31, 40, 0.58);
+            font-size: 0.72rem;
             font-weight: 800;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
+            letter-spacing: 0.08em;
             text-align: center;
+            text-transform: uppercase;
+            backdrop-filter: blur(12px);
+        }
+
+        .letter {
+            display: grid;
+            grid-template-columns: minmax(0, 0.72fr) minmax(320px, 1fr);
+            gap: clamp(24px, 5vw, 70px);
+            align-items: center;
+        }
+
+        .letter-photo {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: #2b2134;
+        }
+
+        .letter-photo img {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+        }
+
+        .letter-copy {
+            padding: clamp(22px, 4vw, 46px);
+            border-left: 4px solid var(--rose);
+            background: rgba(255, 255, 255, 0.54);
+        }
+
+        .letter-copy p {
+            margin: 0;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(1.5rem, 2.4vw, 2rem);
+            line-height: 1.45;
+            color: var(--ink);
+        }
+
+        .game-wrap {
+            display: grid;
+            grid-template-columns: minmax(320px, 0.8fr) minmax(0, 1fr);
+            gap: clamp(22px, 5vw, 58px);
+            align-items: center;
+        }
+
+        .tree-stage {
+            position: relative;
+            min-height: 520px;
+            border-radius: 8px;
+            overflow: hidden;
+            background:
+                linear-gradient(to bottom, rgba(226, 244, 255, 0.95), rgba(216, 242, 236, 0.98)),
+                #d8f2ec;
+            box-shadow: var(--shadow);
+        }
+
+        .tree {
+            position: absolute;
+            left: 50%;
+            bottom: 48px;
+            width: min(360px, 68vw);
+            height: 390px;
+            transform: translateX(-50%);
+        }
+
+        .trunk {
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 58px;
+            height: 210px;
+            transform: translateX(-50%);
+            border-radius: 32px 32px 10px 10px;
+            background: linear-gradient(90deg, #7b4a2d, #a96a3d 46%, #6f3f27);
+        }
+
+        .branch {
+            position: absolute;
+            bottom: 160px;
+            left: 50%;
+            width: 152px;
+            height: 24px;
+            border-radius: 999px;
+            background: #865130;
+            transform-origin: left center;
+        }
+
+        .branch.one {
+            transform: rotate(-34deg);
+        }
+
+        .branch.two {
+            width: 130px;
+            transform: rotate(28deg);
+        }
+
+        .branch.three {
+            bottom: 112px;
+            width: 116px;
+            transform: rotate(-18deg);
+        }
+
+        .leaf-cloud {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(63, 127, 97, 0.96);
+            box-shadow:
+                50px -16px 0 rgba(80, 152, 105, 0.96),
+                105px 16px 0 rgba(55, 117, 82, 0.96),
+                22px 54px 0 rgba(96, 169, 117, 0.96),
+                84px 70px 0 rgba(63, 127, 97, 0.96);
+            opacity: 0;
+            transform: scale(0.72);
+            transition: opacity 400ms ease, transform 400ms ease;
+        }
+
+        .leaf-cloud.one {
+            left: 54px;
+            top: 38px;
+            width: 128px;
+            height: 114px;
+        }
+
+        .leaf-cloud.two {
+            right: 80px;
+            top: 82px;
+            width: 118px;
+            height: 106px;
+        }
+
+        .leaf-cloud.three {
+            left: 104px;
+            top: 0;
+            width: 138px;
+            height: 124px;
+        }
+
+        .tree-stage[data-level="1"] .leaf-cloud.one,
+        .tree-stage[data-level="2"] .leaf-cloud.one,
+        .tree-stage[data-level="2"] .leaf-cloud.two,
+        .tree-stage[data-level="3"] .leaf-cloud {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .heart-fruit {
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            border-radius: 50%;
+            background: var(--rose);
+            box-shadow: 0 10px 20px rgba(127, 29, 63, 0.28);
+            opacity: 0;
+            transform: translateY(16px) scale(0.8);
+            transition: opacity 340ms ease, transform 340ms ease;
+        }
+
+        .heart-fruit:nth-of-type(6) { left: 88px; top: 82px; }
+        .heart-fruit:nth-of-type(7) { right: 112px; top: 120px; }
+        .heart-fruit:nth-of-type(8) { left: 166px; top: 42px; }
+        .heart-fruit:nth-of-type(9) { right: 84px; top: 188px; }
+        .heart-fruit:nth-of-type(10) { left: 126px; top: 176px; }
+
+        .tree-stage[data-level="2"] .heart-fruit,
+        .tree-stage[data-level="3"] .heart-fruit {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .yes-banner {
+            position: absolute;
+            left: 20px;
+            right: 20px;
+            bottom: 18px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            color: var(--ink);
+            background: rgba(255, 255, 255, 0.76);
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .game-panel {
+            padding: clamp(24px, 4vw, 42px);
+            border: 1px solid rgba(37, 31, 40, 0.1);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 16px 42px rgba(37, 31, 40, 0.08);
+        }
+
+        .game-panel h2 {
+            font-size: clamp(2.8rem, 5vw, 5.4rem);
+        }
+
+        .game-panel p {
+            margin: 16px 0 22px;
+        }
+
+        .yes-button {
+            background: var(--leaf);
+        }
+
+        .no-button {
+            position: relative;
+        }
+
+        .score-line {
+            margin-top: 18px;
+            color: rgba(37, 31, 40, 0.62);
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .scriptures {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .scripture-card {
+            padding: clamp(22px, 3vw, 34px);
+            border: 1px solid rgba(37, 31, 40, 0.1);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.72);
+            box-shadow: 0 16px 34px rgba(37, 31, 40, 0.08);
+        }
+
+        .scripture-card strong {
+            display: block;
+            color: var(--wine);
+            font-size: clamp(1.8rem, 3vw, 2.7rem);
+        }
+
+        .scripture-card p {
+            margin: 14px 0 0;
         }
 
         footer {
-            padding: 0 16px 22px;
-            color: rgba(35, 31, 43, 0.62);
-            font-size: 0.78rem;
+            padding: 24px 16px 34px;
+            color: rgba(37, 31, 40, 0.64);
+            font-size: 0.76rem;
             font-weight: 800;
-            letter-spacing: 0.16em;
+            letter-spacing: 0.14em;
             text-align: center;
             text-transform: uppercase;
         }
 
-        @media (max-width: 900px) {
-            .chapter,
-            .chapter.cover {
+        @media (max-width: 920px) {
+            .hero,
+            .letter,
+            .game-wrap {
                 grid-template-columns: 1fr;
             }
 
-            .photo-stage {
-                min-height: 54vh;
+            .hero-media {
+                min-height: 66vh;
+                order: -1;
             }
 
-            .cover .photo-stage {
-                min-height: 62vh;
+            .promise-grid,
+            .scriptures {
+                grid-template-columns: 1fr;
             }
 
-            .chapter-copy,
-            .cover-copy {
-                padding: 28px;
+            .photo-card,
+            .photo-card.large {
+                grid-column: span 6;
             }
         }
 
@@ -473,381 +685,458 @@
                 flex-direction: column;
             }
 
-            .chapter-dots {
-                width: 100%;
-                justify-content: space-between;
-                gap: 5px;
+            .topbar nav {
+                justify-content: flex-start;
             }
 
-            .chapter-dot {
-                flex: 1;
-                height: 8px;
-                border-radius: 999px;
+            .hero,
+            section {
+                width: min(100vw - 18px, 1180px);
             }
 
-            .chapter-dot.is-active {
-                width: auto;
+            .hero-copy h1 {
+                font-size: clamp(3.4rem, 18vw, 5.3rem);
             }
 
-            .book {
-                width: calc(100vw - 18px);
-                margin: 10px auto 18px;
-                border-radius: 22px;
-            }
-
-            .photo-label h1,
-            .photo-label h2 {
-                font-size: clamp(4rem, 22vw, 6.3rem);
-            }
-
-            .memory-strip {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .memory-strip figure:nth-child(3) {
-                display: none;
+            .hero-caption h1 {
+                font-size: clamp(3.7rem, 19vw, 5.8rem);
             }
 
             .love-counter {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-columns: repeat(3, minmax(0, 1fr));
             }
 
-            .actions,
-            .chapter-nav {
+            .photo-garden {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-card,
+            .photo-card.large,
+            .photo-card.tall {
+                grid-column: auto;
+                min-height: 360px;
+            }
+
+            .tree-stage {
+                min-height: 470px;
+            }
+
+            .button-row {
                 align-items: stretch;
                 flex-direction: column;
             }
 
-            .nav-button {
+            .button,
+            .yes-button,
+            .no-button {
                 width: 100%;
             }
-
-            .chapter-count {
-                order: -1;
-            }
         }
+        /* Lightbox and heart particle styles */
+        #lightbox {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 60;
+        }
+
+        #lightbox.open { display: flex; }
+
+        #lightbox .lb-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(10,6,10,0.6);
+            backdrop-filter: blur(6px) saturate(1.1);
+        }
+
+        #lightbox .lb-content {
+            position: relative;
+            max-width: min(92vw, 980px);
+            width: 92vw;
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: 0 24px 80px rgba(16,8,24,0.6);
+            background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+            display: grid;
+            gap: 10px;
+            align-items: center;
+            z-index: 62;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        #lbClose {
+            position: absolute;
+            right: 12px;
+            top: 8px;
+            background: transparent;
+            border: 0;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            font-weight: 800;
+        }
+
+        /* Lightbox nav */
+        .lb-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.38);
+            border: 0;
+            color: #fff;
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 63;
+        }
+
+        .lb-prev { left: 8px; }
+        .lb-next { right: 8px; }
+
+        /* gentle background hearts animation */
+        .bg-heart { position: fixed; width: 12px; height: 12px; border-radius: 50%; pointer-events: none; opacity: 0.14; transform: scale(0.9); background: radial-gradient(circle at 30% 30%, #fff0f6 0%, #ff7aa9 40%); animation: floatUp 8s linear infinite; z-index: 1; }
+        @keyframes floatUp { from { transform: translateY(12vh) scale(0.9); } to { transform: translateY(-20vh) scale(1.1); } }
+
+        #lbImage { width: 100%; height: auto; border-radius: 8px; display: block; }
+        #lbCaption { color: rgba(255,255,255,0.9); text-align: center; font-weight: 700; }
+
+        .float-heart {
+            position: fixed;
+            width: 24px;
+            height: 24px;
+            pointer-events: none;
+            transform: translateY(0) scale(0.8) rotate(-18deg);
+            opacity: 0.96;
+            background: radial-gradient(circle at 30% 30%, #ffe6f1 0%, #ff7aa9 40%, #e45f8f 100%);
+            clip-path: path('M12 21s-9-5.4-9-11.5S7 0 12 5.4 27 0 27 9.5 12 21 12 21z');
+            border-radius: 8px;
+            z-index: 80;
+            transition: transform 1.2s cubic-bezier(.22,.8,.2,1), opacity 1.2s ease;
+        }
+
+        .float-heart.rise { transform: translateY(-160px) scale(1.2) rotate(6deg); opacity: 0; }
     </style>
 </head>
 <body>
-    <div class="site-shell">
-        <header class="topbar">
-            <div class="brand">
-                <span class="brand-mark">&hearts;</span>
-                <span>For Ruth</span>
+    <header class="topbar">
+        <div class="brand">
+            <span class="brand-mark" aria-hidden="true">♥</span>
+            <span>Ruth and Me</span>
+        </div>
+        <nav aria-label="Page sections">
+            <a href="#memories">Memories</a>
+            <a href="#game">Love tree</a>
+            <a href="#scriptures">Scriptures</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="top">
+            <div class="hero-copy">
+                <span class="eyebrow">Three months together</span>
+                <h1>Happy 3 months, my baby Ruth.</h1>
+                <p>Three months of choosing each other, laughing at the little things, learning each other more deeply, and building something soft, faithful, and real.</p>
+                <div class="love-counter" aria-label="Three month celebration counter">
+                    <div class="time-card"><strong>3</strong><span>Months</span></div>
+                    <div class="time-card"><strong id="daysTogether">0</strong><span>Days</span></div>
+                    <div class="time-card"><strong>1</strong><span>Love</span></div>
+                </div>
+                <div class="button-row">
+                    <a class="button" href="#memories">Open our memories</a>
+                    <a class="button secondary" href="#game">Play the yes game</a>
+                </div>
             </div>
-            <nav class="chapter-dots" aria-label="Love chapters">
-                <button class="chapter-dot is-active" type="button" aria-label="Open cover" data-page="0"></button>
-                <button class="chapter-dot" type="button" aria-label="Open chapter one" data-page="1"></button>
-                <button class="chapter-dot" type="button" aria-label="Open chapter two" data-page="2"></button>
-                <button class="chapter-dot" type="button" aria-label="Open chapter three" data-page="3"></button>
-                <button class="chapter-dot" type="button" aria-label="Open chapter four" data-page="4"></button>
-                <button class="chapter-dot" type="button" aria-label="Open chapter five" data-page="5"></button>
-                <button class="chapter-dot" type="button" aria-label="Open chapter six" data-page="6"></button>
-                <button class="chapter-dot" type="button" aria-label="Open chapter seven" data-page="7"></button>
-                <button class="chapter-dot" type="button" aria-label="Open chapter eight" data-page="8"></button>
-            </nav>
-        </header>
-
-        <main class="book" aria-live="polite">
-            <div class="slider" id="slider">
-                <section class="chapter cover" aria-label="Cover">
-                    <div class="photo-stage">
-                        <img class="hero-photo" src="images/IMG_20260512_120309.jpg" alt="Ruth standing in the courtyard with her brown jacket and beige skirt">
-                        <div class="photo-label">
-                            <span>May 12, 2026</span>
-                            <h1>Ruth</h1>
-                        </div>
-                    </div>
-                    <div class="cover-copy">
-                        <div>
-                            <span class="kicker">The brown jacket day</span>
-                            <h1>Every pose held its own little kind of love.</h1>
-                            <p>For my babe Ruth: a little photo book from the courtyard, the flowers, the sunlight, and the moment we finally stepped into the frame together.</p>
-                        </div>
-                        <div class="love-counter" aria-label="Time since the photo day on May 12, 2026">
-                            <div class="time-card"><strong id="days">0</strong><span>Days</span></div>
-                            <div class="time-card"><strong id="hours">0</strong><span>Hours</span></div>
-                            <div class="time-card"><strong id="minutes">0</strong><span>Minutes</span></div>
-                            <div class="time-card"><strong id="seconds">0</strong><span>Seconds</span></div>
-                        </div>
-                        <div class="actions">
-                            <button class="nav-button" type="button" data-page="1">Begin the story <span aria-hidden="true">&rarr;</span></button>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="chapter" aria-label="Chapter one">
-                    <div class="photo-stage">
-                        <img class="main-photo" src="images/IMG_20260512_120357.jpg" alt="Ruth smiling softly in the courtyard garden">
-                        <div class="photo-label">
-                            <span>Chapter one</span>
-                            <h2>Courtyard</h2>
-                        </div>
-                    </div>
-                    <div class="chapter-copy">
-                        <div>
-                            <span class="kicker">Green grass, red flowers, soft light</span>
-                            <h2>The courtyard became beautiful because you were in it.</h2>
-                            <p class="letter">I love how these first photos feel calm and confident, like the whole place paused for you. Brown jacket, beige skirt, black boots, and that gentle look that makes an ordinary afternoon feel special.</p>
-                        </div>
-                        <div class="memory-strip">
-                            <figure><img src="images/IMG_20260512_120357 - Copy.jpg" alt="Ruth posing beside the flower bed"><figcaption>Soft smile</figcaption></figure>
-                            <figure><img src="images/IMG_20260512_120400.jpg" alt="Ruth standing with her tote bag in the courtyard"><figcaption>Full look</figcaption></figure>
-                            <figure><img src="images/IMG_20260512_120423.jpg" alt="Ruth looking across the garden"><figcaption>Garden gaze</figcaption></figure>
-                        </div>
-                        <div class="chapter-nav">
-                            <button class="nav-button secondary" type="button" data-page="0">&larr; Cover</button>
-                            <span class="chapter-count">1 / 8</span>
-                            <button class="nav-button" type="button" data-page="2">Next &rarr;</button>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="chapter" aria-label="Chapter two">
-                    <div class="photo-stage">
-                        <img class="main-photo" src="images/IMG_20260512_120444.jpg" alt="Ruth standing tall beside red flowers">
-                        <div class="photo-label">
-                            <span>Chapter two</span>
-                            <h2>Glow</h2>
-                        </div>
-                    </div>
-                    <div class="chapter-copy">
-                        <div>
-                            <span class="kicker">When confidence looks peaceful</span>
-                            <h2>You made the simple background feel styled.</h2>
-                            <p class="letter">The wall, the windows, the flowers, the grass - everything stayed simple, but you gave it presence. These frames are proof that beauty does not have to shout.</p>
-                        </div>
-                        <div class="memory-strip">
-                            <figure><img src="images/IMG_20260512_120451.jpg" alt="Ruth smiling with her hand near her jacket"><figcaption>Bright laugh</figcaption></figure>
-                            <figure><img src="images/IMG_20260512_120503.jpg" alt="Ruth holding her jacket while smiling"><figcaption>Jacket moment</figcaption></figure>
-                            <figure><img src="images/IMG_20260512_120508.jpg" alt="Ruth turned sideways in the courtyard"><figcaption>Side profile</figcaption></figure>
-                        </div>
-                        <div class="chapter-nav">
-                            <button class="nav-button secondary" type="button" data-page="1">&larr; Back</button>
-                            <span class="chapter-count">2 / 8</span>
-                            <button class="nav-button" type="button" data-page="3">Next &rarr;</button>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="chapter" aria-label="Chapter three">
-                    <div class="photo-stage">
-                        <img class="main-photo" src="images/IMG_20260512_120400 - Copy.jpg" alt="Ruth holding her tote bag in a full outfit portrait">
-                        <div class="photo-label">
-                            <span>Chapter three</span>
-                            <h2>Details</h2>
-                        </div>
-                    </div>
-                    <div class="chapter-copy">
-                        <div>
-                            <span class="kicker">The outfit told its own story</span>
-                            <h2>That tote, those boots, that jacket - all Ruth.</h2>
-                            <p class="letter">There is something sweet about the details: the brown jacket resting on your shoulders, the skirt moving softly, the tote in your hand, and your calm expression tying it all together.</p>
-                        </div>
-                        <div class="memory-strip">
-                            <figure><img src="images/IMG_20260512_120423 - Copy.jpg" alt="Ruth looking toward the flowers"><figcaption>Quiet pose</figcaption></figure>
-                            <figure><img src="images/IMG_20260512_120444 - Copy.jpg" alt="Ruth in a composed courtyard portrait"><figcaption>Composed</figcaption></figure>
-                            <figure><img src="images/IMG_20260512_120451 - Copy.jpg" alt="Ruth laughing in the garden"><figcaption>Joy caught</figcaption></figure>
-                        </div>
-                        <div class="chapter-nav">
-                            <button class="nav-button secondary" type="button" data-page="2">&larr; Back</button>
-                            <span class="chapter-count">3 / 8</span>
-                            <button class="nav-button" type="button" data-page="4">Next &rarr;</button>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="chapter" aria-label="Chapter four">
-                    <div class="photo-stage">
-                        <img class="main-photo" src="images/IMG_20260512_120503 - Copy.jpg" alt="Ruth smiling while holding her brown jacket">
-                        <div class="photo-label">
-                            <span>Chapter four</span>
-                            <h2>Laugh</h2>
-                        </div>
-                    </div>
-                    <div class="chapter-copy">
-                        <div>
-                            <span class="kicker">The photo that feels like movement</span>
-                            <h2>Your laugh made the whole page lighter.</h2>
-                            <p class="letter">This is the part of the shoot that feels alive - the jacket lifted, the smile opening, the day becoming playful. It is impossible to look at these and not smile back.</p>
-                        </div>
-                        <div class="memory-strip">
-                            <figure><img src="images/IMG_20260512_120508 - Copy.jpg" alt="Ruth posing from the side"><figcaption>Turned pose</figcaption></figure>
-                            <figure><img src="images/IMG_20260512_120858 - Copy.jpg" alt="A close selfie of the couple"><figcaption>Selfie break</figcaption></figure>
-                            <figure><img src="images/IMG_20260512_120939.jpg" alt="The couple standing together under a parking canopy"><figcaption>Together</figcaption></figure>
-                        </div>
-                        <div class="chapter-nav">
-                            <button class="nav-button secondary" type="button" data-page="3">&larr; Back</button>
-                            <span class="chapter-count">4 / 8</span>
-                            <button class="nav-button" type="button" data-page="5">Next &rarr;</button>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="chapter" aria-label="Chapter five">
-                    <div class="photo-stage">
-                        <img class="main-photo" src="images/IMG_20260512_120939 - Copy.jpg" alt="The couple smiling together under the parking canopy">
-                        <div class="photo-label">
-                            <span>Chapter five</span>
-                            <h2>Together</h2>
-                        </div>
-                    </div>
-                    <div class="chapter-copy">
-                        <div>
-                            <span class="kicker">When the frame became ours</span>
-                            <h2>The best part was standing beside you.</h2>
-                            <p class="letter">After all the beautiful portraits, this is where the story changes from admiring you to standing with you. Same day, same colors, same smiles - now the memory has both of us in it.</p>
-                        </div>
-                        <div class="memory-strip">
-                            <figure><img src="images/IMG_20260512_120942.jpg" alt="The couple posing together with Ruth making a peace sign"><figcaption>Peace sign</figcaption></figure>
-                            <figure><img src="images/IMG_20260512_120942 - Copy.jpg" alt="The couple standing close together"><figcaption>Close beside</figcaption></figure>
-                            <figure><img src="images/IMG_20260512_120309 - Copy.jpg" alt="Ruth holding her jacket in the first courtyard pose"><figcaption>Back to Ruth</figcaption></figure>
-                        </div>
-                        <div class="chapter-nav">
-                            <button class="nav-button secondary" type="button" data-page="4">&larr; Back</button>
-                            <span class="chapter-count">5 / 8</span>
-                            <button class="nav-button" type="button" data-page="6">Next &rarr;</button>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="chapter" aria-label="Chapter six">
-                    <div class="photo-stage">
-                        <img class="main-photo" src="images/IMG_20260512_120309.jpg" alt="Ruth standing with her jacket and tote at the start of the shoot">
-                        <div class="photo-label">
-                            <span>Chapter six</span>
-                            <h2>Poise</h2>
-                        </div>
-                    </div>
-                    <div class="chapter-copy">
-                        <div>
-                            <span class="kicker">A second look at the beginning</span>
-                            <h2>The first pose still says so much.</h2>
-                            <p class="letter">Coming back to this frame feels right because it holds the whole mood: gentle, stylish, grounded, and quietly powerful. Ruth, you did not just take pictures - you gave the day character.</p>
-                        </div>
-                        <div class="memory-strip">
-                            <figure><img src="images/IMG_20260512_120357.jpg" alt="Ruth smiling in the garden"><figcaption>Soft again</figcaption></figure>
-                            <figure><img src="images/IMG_20260512_120357 - Copy.jpg" alt="Ruth standing between the lawn and flowers"><figcaption>Garden calm</figcaption></figure>
-                            <figure><img src="images/IMG_20260512_120400.jpg" alt="Ruth showing the full outfit with her tote bag"><figcaption>Whole fit</figcaption></figure>
-                        </div>
-                        <div class="chapter-nav">
-                            <button class="nav-button secondary" type="button" data-page="5">&larr; Back</button>
-                            <span class="chapter-count">6 / 8</span>
-                            <button class="nav-button" type="button" data-page="7">Next &rarr;</button>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="chapter" aria-label="Chapter seven">
-                    <div class="photo-stage">
-                        <img class="main-photo" src="images/IMG_20260512_120423.jpg" alt="Ruth looking thoughtfully across the courtyard">
-                        <div class="photo-label">
-                            <span>Chapter seven</span>
-                            <h2>Looking</h2>
-                        </div>
-                    </div>
-                    <div class="chapter-copy">
-                        <div>
-                            <span class="kicker">The quiet look away</span>
-                            <h2>Even when you look away, the photo still points to you.</h2>
-                            <p class="letter">Some of my favorite frames are the quiet ones. You are not trying too hard here; you are just present, thoughtful, and beautiful in a way the camera could not miss.</p>
-                        </div>
-                        <div class="memory-strip">
-                            <figure><img src="images/IMG_20260512_120444.jpg" alt="Ruth standing calmly near the red flowers"><figcaption>Still frame</figcaption></figure>
-                            <figure><img src="images/IMG_20260512_120451.jpg" alt="Ruth smiling brightly"><figcaption>Smile returns</figcaption></figure>
-                            <figure><img src="images/IMG_20260512_120503.jpg" alt="Ruth laughing with her jacket lifted"><figcaption>Light heart</figcaption></figure>
-                        </div>
-                        <div class="chapter-nav">
-                            <button class="nav-button secondary" type="button" data-page="6">&larr; Back</button>
-                            <span class="chapter-count">7 / 8</span>
-                            <button class="nav-button" type="button" data-page="8">Next &rarr;</button>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="chapter" aria-label="Chapter eight">
-                    <div class="photo-stage">
-                        <img class="main-photo" src="images/IMG_20260512_120942.jpg" alt="The couple smiling together at the end of the photo day">
-                        <div class="photo-label">
-                            <span>Chapter eight</span>
-                            <h2>Favorite</h2>
-                        </div>
-                    </div>
-                    <div class="chapter-copy">
-                        <div>
-                            <span class="kicker">The chapter with both smiles</span>
-                            <h2>Ruth, this is the picture I want to keep returning to.</h2>
-                            <p class="letter">The portraits are beautiful because they show you. These final photos are beautiful because they show us - close, happy, dressed in the same warm tones, and keeping one more sweet memory from May 12.</p>
-                            <div class="closing-blessing">
-                                <strong>To close this chapter</strong>
-                                <p>I love you, Ruth. Like the Bible says, love is patient and kind; that is the love I want to keep giving you - gentle, faithful, and always choosing you.</p>
-                            </div>
-                        </div>
-                        <div class="memory-strip">
-                            <figure><img src="images/IMG_20260512_120942 - Copy.jpg" alt="The couple standing together under the canopy"><figcaption>Warm tones</figcaption></figure>
-                            <figure><img src="images/IMG_20260512_120508.jpg" alt="Ruth turned sideways with the brown jacket over her shoulders"><figcaption>One last pose</figcaption></figure>
-                            <figure><img src="images/IMG_20260512_120858 - Copy.jpg" alt="Close selfie of the couple smiling"><figcaption>Close selfie</figcaption></figure>
-                        </div>
-                        <div class="chapter-nav">
-                            <button class="nav-button secondary" type="button" data-page="7">&larr; Back</button>
-                            <span class="chapter-count">8 / 8</span>
-                            <button class="nav-button" type="button" data-page="0">Back to Ruth</button>
-                        </div>
-                    </div>
-                </section>
+            <div class="hero-media">
+                <img src="my%20baby%20pictures/1783086978413.jpg" alt="A beautiful new picture of Ruth">
+                <div class="hero-caption">
+                    <span class="eyebrow">For my favorite girl</span>
+                    <h1>Ruth</h1>
+                </div>
             </div>
-        </main>
+        </section>
 
-        <footer>May 12, 2026 - brown jacket, courtyard flowers, and us</footer>
-    </div>
+        <section aria-labelledby="promise-title">
+            <div class="section-heading">
+                <span class="eyebrow">What these months mean</span>
+                <h2 id="promise-title">Not just dates on a calendar.</h2>
+                <p>This is a small celebration of every moment that made us feel closer: the sweet talks, the pictures, the teasing, the prayers, and the quiet certainty that I want more days with you.</p>
+            </div>
+            <div class="promise-grid">
+                <article class="promise">
+                    <h3>Joy</h3>
+                    <p>You bring a kind of happiness that does not need noise before it is felt. You make ordinary days brighter.</p>
+                </article>
+                <article class="promise">
+                    <h3>Peace</h3>
+                    <p>Being with you feels gentle. It feels like having someone I can love carefully and still laugh freely with.</p>
+                </article>
+                <article class="promise">
+                    <h3>Choice</h3>
+                    <p>These three months are only the beginning, and I keep choosing you with my heart, my words, and my actions.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="memories" aria-labelledby="memories-title">
+            <div class="section-heading">
+                <span class="eyebrow">Our photo garden</span>
+                <h2 id="memories-title">A little gallery for the girl I adore.</h2>
+                <p>A fresh little gallery for you: newer pictures, softer memories, and one sweet reminder that every version of Ruth is worth celebrating.</p>
+            </div>
+            <div class="photo-garden">
+                <figure class="photo-card large">
+                    <img src="my%20baby%20pictures/1783086978628.jpg" alt="A new portrait picture of Ruth">
+                    <figcaption>My baby</figcaption>
+                </figure>
+                <figure class="photo-card tall">
+                    <img src="my%20baby%20pictures/1783086978593.jpg" alt="A new portrait picture of Ruth">
+                    <figcaption>Soft beauty</figcaption>
+                </figure>
+                <figure class="photo-card">
+                    <img src="my%20baby%20pictures/1783086978413.jpg" alt="A beautiful new picture of Ruth">
+                    <figcaption>So beautiful</figcaption>
+                </figure>
+                <figure class="photo-card">
+                    <img src="my%20baby%20pictures/1783086978368.jpg" alt="A new picture of Ruth">
+                    <figcaption>My favorite girl</figcaption>
+                </figure>
+                <figure class="photo-card large">
+                    <img src="my%20baby%20pictures/1783086978206.jpg" alt="A new landscape picture of Ruth">
+                    <figcaption>Sweet memory</figcaption>
+                </figure>
+                <figure class="photo-card">
+                    <img src="my%20baby%20pictures/8042514acd1987472b56bdb36e1ac061.jpg" alt="A new full length picture of Ruth">
+                    <figcaption>Always loved</figcaption>
+                </figure>
+                <figure class="photo-card">
+                    <img src="my%20baby%20pictures/IMG-20260626-WA0026.jpg" alt="A new sweet picture of Ruth">
+                    <figcaption>Precious</figcaption>
+                </figure>
+                <!-- Baby Ruth photo removed -->
+            </div>
+        </section>
+
+        <section class="letter" aria-labelledby="letter-title">
+            <div class="letter-photo">
+                <img src="my%20baby%20pictures/1783086978628.jpg" alt="A beautiful portrait of Ruth">
+            </div>
+            <div class="letter-copy">
+                <span class="eyebrow">My note to you</span>
+                <p id="letter-title">My baby, thank you for these three months. Thank you for your smile, your care, your patience, and the way you make love feel personal. I pray we keep growing in kindness, honesty, laughter, and God. I love you, Ruth.</p>
+            </div>
+        </section>
+
+        <section id="game" aria-labelledby="game-title">
+            <div class="game-wrap">
+                <div class="tree-stage" id="treeStage" data-level="0" aria-label="Love tree game stage">
+                    <div class="tree" aria-hidden="true">
+                        <div class="branch one"></div>
+                        <div class="branch two"></div>
+                        <div class="branch three"></div>
+                        <div class="trunk"></div>
+                        <div class="leaf-cloud one"></div>
+                        <div class="leaf-cloud two"></div>
+                        <div class="leaf-cloud three"></div>
+                        <span class="heart-fruit">♥</span>
+                        <span class="heart-fruit">♥</span>
+                        <span class="heart-fruit">♥</span>
+                        <span class="heart-fruit">♥</span>
+                        <span class="heart-fruit">♥</span>
+                    </div>
+                    <div class="yes-banner" id="yesBanner">Make the love tree grow by saying yes.</div>
+                </div>
+                <div class="game-panel">
+                    <span class="eyebrow">Tiny love game</span>
+                    <h2 id="game-title">The only winning answer is yes.</h2>
+                    <p>Ruth has to keep saying yes so the tree can grow. The no button is shy; it runs away because this site is clearly on the side of love.</p>
+                    <div class="button-row">
+                        <button class="yes-button" type="button" id="yesButton">Yes, I love you</button>
+                        <button class="no-button" type="button" id="noButton">No</button>
+                    </div>
+                    <div class="score-line" id="scoreLine">Yeses collected: 0 / 3</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="scriptures" aria-labelledby="scriptures-title">
+            <div class="section-heading">
+                <span class="eyebrow">Scriptures of love</span>
+                <h2 id="scriptures-title">A blessing over us.</h2>
+                <p>May our love keep becoming patient, kind, truthful, forgiving, and rooted in God.</p>
+            </div>
+            <div class="scriptures">
+                <article class="scripture-card">
+                    <strong>1 Corinthians 13:4-7</strong>
+                    <p>Love is patient and kind. It protects, trusts, hopes, and perseveres.</p>
+                </article>
+                <article class="scripture-card">
+                    <strong>Song of Solomon 8:7</strong>
+                    <p>Many waters cannot quench love; rivers cannot sweep it away.</p>
+                </article>
+                <article class="scripture-card">
+                    <strong>1 John 4:19</strong>
+                    <p>We love because He first loved us.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>Happy 3 months, Ruth. I love you today, and I am choosing you again.</footer>
 
     <script>
-        const slider = document.getElementById("slider");
-        const dots = [...document.querySelectorAll(".chapter-dot")];
-        const pageButtons = [...document.querySelectorAll("[data-page]")];
-        const totalPages = dots.length;
-        let currentPage = 0;
+        const daysTogether = document.getElementById("daysTogether");
+        const startDate = new Date("2026-04-03T00:00:00");
 
-        function goToPage(page) {
-            currentPage = Math.max(0, Math.min(totalPages - 1, Number(page)));
-            slider.style.transform = `translateX(-${currentPage * 100}%)`;
-            dots.forEach((dot, index) => {
-                dot.classList.toggle("is-active", index === currentPage);
-                dot.setAttribute("aria-current", index === currentPage ? "page" : "false");
-            });
+        function updateDaysTogether() {
+            const difference = Date.now() - startDate.getTime();
+            daysTogether.textContent = Math.max(0, Math.floor(difference / 86400000));
         }
 
-        pageButtons.forEach((button) => {
-            button.addEventListener("click", () => goToPage(button.dataset.page));
+        updateDaysTogether();
+
+        const treeStage = document.getElementById("treeStage");
+        const yesButton = document.getElementById("yesButton");
+        const noButton = document.getElementById("noButton");
+        const yesBanner = document.getElementById("yesBanner");
+        const scoreLine = document.getElementById("scoreLine");
+        let yesCount = 0;
+
+        const messages = [
+            "Good start. The roots heard that yes.",
+            "Again? The branches are smiling now.",
+            "Perfect. Our love tree is blooming.",
+            "She said yes again. This tree is officially spoiled.",
+            "Forever yes sounds very good on you."
+        ];
+
+        yesButton.addEventListener("click", () => {
+            yesCount += 1;
+            const level = Math.min(3, yesCount);
+            treeStage.dataset.level = String(level);
+            yesBanner.textContent = messages[Math.min(messages.length - 1, yesCount - 1)];
+            scoreLine.textContent = `Yeses collected: ${Math.min(yesCount, 3)} / 3`;
+
+            if (yesCount >= 3) {
+                yesButton.textContent = "Yes forever";
+                scoreLine.textContent = "Love tree complete. She chose yes.";
+                confettiHearts(30);
+            }
         });
 
-        document.addEventListener("keydown", (event) => {
-            if (event.key === "ArrowRight") {
-                goToPage(currentPage + 1);
-            }
-            if (event.key === "ArrowLeft") {
-                goToPage(currentPage - 1);
-            }
-        });
-
-        const anniversary = new Date("2026-05-12T00:00:00").getTime();
-        const timeParts = {
-            days: document.getElementById("days"),
-            hours: document.getElementById("hours"),
-            minutes: document.getElementById("minutes"),
-            seconds: document.getElementById("seconds")
-        };
-
-        function updateCounter() {
-            const difference = Math.max(0, Date.now() - anniversary);
-            timeParts.days.textContent = Math.floor(difference / 86400000);
-            timeParts.hours.textContent = Math.floor((difference % 86400000) / 3600000);
-            timeParts.minutes.textContent = Math.floor((difference % 3600000) / 60000);
-            timeParts.seconds.textContent = Math.floor((difference % 60000) / 1000);
+        function moveNoButton() {
+            const x = Math.round((Math.random() * 120) - 60);
+            const y = Math.round((Math.random() * 90) - 45);
+            noButton.style.transform = `translate(${x}px, ${y}px)`;
+            yesBanner.textContent = "No tried to escape. Please press yes.";
         }
 
-        updateCounter();
-        setInterval(updateCounter, 1000);
+        noButton.addEventListener("mouseenter", moveNoButton);
+        noButton.addEventListener("focus", moveNoButton);
+        noButton.addEventListener("click", () => {
+            moveNoButton();
+            noButton.textContent = "Try yes";
+            noButton.style.opacity = "0.76";
+        });
+
+        // --- Lightbox gallery & floating hearts (romantic interactions) ---
+        const images = Array.from(document.querySelectorAll('.photo-card img, .hero-media img, .letter-photo img'));
+        const lightbox = document.createElement('div');
+        lightbox.id = 'lightbox';
+        lightbox.innerHTML = `
+            <div class="lb-overlay" id="lbOverlay" tabindex="-1"></div>
+            <div class="lb-content" role="dialog" aria-modal="true" aria-label="Image preview">
+                <button id="lbClose" aria-label="Close">✕</button>
+                <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">◀</button>
+                <button class="lb-nav lb-next" id="lbNext" aria-label="Next">▶</button>
+                <img id="lbImage" src="" alt="">
+                <div id="lbCaption"></div>
+            </div>
+        `;
+        document.body.appendChild(lightbox);
+
+        const lbOverlay = document.getElementById('lbOverlay');
+        const lbClose = document.getElementById('lbClose');
+        const lbPrev = document.getElementById('lbPrev');
+        const lbNext = document.getElementById('lbNext');
+        const lbImage = document.getElementById('lbImage');
+        const lbCaption = document.getElementById('lbCaption');
+        let currentIndex = 0;
+
+        function openLightbox(img, idx) {
+            currentIndex = typeof idx === 'number' ? idx : images.indexOf(img);
+            lbImage.src = images[currentIndex].src;
+            lbCaption.textContent = images[currentIndex].alt || '';
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            lbClose.focus();
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            lbImage.src = '';
+            document.body.style.overflow = '';
+        }
+
+        images.forEach((img, i) => {
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', () => openLightbox(img, i));
+        });
+
+        function showNext() {
+            currentIndex = (currentIndex + 1) % images.length;
+            lbImage.src = images[currentIndex].src;
+            lbCaption.textContent = images[currentIndex].alt || '';
+        }
+
+        function showPrev() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            lbImage.src = images[currentIndex].src;
+            lbCaption.textContent = images[currentIndex].alt || '';
+        }
+
+        lbNext.addEventListener('click', showNext);
+        lbPrev.addEventListener('click', showPrev);
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') showNext();
+            if (e.key === 'ArrowLeft') showPrev();
+        });
+
+        lbOverlay.addEventListener('click', closeLightbox);
+        lbClose.addEventListener('click', closeLightbox);
+
+        // Floating heart particles when clicking the hero
+        function spawnHeart(x, y, small = false) {
+            const heart = document.createElement('div');
+            heart.className = 'float-heart';
+            if (small) { heart.style.width = '16px'; heart.style.height = '16px'; }
+            heart.style.left = `${x - (small ? 8 : 12)}px`;
+            heart.style.top = `${y - (small ? 8 : 12)}px`;
+            document.body.appendChild(heart);
+            requestAnimationFrame(() => heart.classList.add('rise'));
+            setTimeout(() => heart.remove(), 1600);
+        }
+
+        document.querySelector('.hero-media').addEventListener('click', (e) => {
+            spawnHeart(e.clientX, e.clientY);
+        });
+
+        // When the yes game completes, spawn confetti hearts
+        function confettiHearts(count = 24) {
+            for (let i = 0; i < count; i++) {
+                const x = Math.random() * window.innerWidth;
+                const y = window.innerHeight - 30;
+                const delay = Math.random() * 400;
+                setTimeout(() => spawnHeart(x, y, true), delay);
+            }
+        }
     </script>
 </body>
 </html>
