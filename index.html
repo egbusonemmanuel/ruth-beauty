@@ -278,35 +278,34 @@
         .button,
         .yes-button,
         .no-button {
-            min-height: 46px;
+            min-height: 48px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             border: 0;
-            border-radius: 999px;
-            padding: 0 18px;
-            color: #fff;
-            background: var(--ink);
+            border-radius: 14px;
+            padding: 0 24px;
+            color: #ffffff;
+            background: linear-gradient(135deg, var(--rose), #d81b60);
             font-weight: 800;
             text-decoration: none;
             cursor: pointer;
-            box-shadow: 0 12px 28px rgba(37, 31, 40, 0.2);
-            transition: transform 180ms ease, background 180ms ease, opacity 180ms ease;
-            border-radius: 14px;
-            padding: 0 20px;
+            box-shadow: 0 10px 25px rgba(255, 42, 117, 0.4);
+            transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
         }
 
         .button:hover,
         .yes-button:hover {
             transform: translateY(-2px);
-            background: linear-gradient(90deg, var(--accent), var(--rose));
+            background: linear-gradient(135deg, #ff4081, #ff2a75);
+            box-shadow: 0 14px 30px rgba(255, 42, 117, 0.6);
         }
 
         .button.secondary,
         .no-button {
-            color: var(--ink);
-            background: rgba(255, 255, 255, 0.72);
-            border: 1px solid var(--line);
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid var(--accent-2);
             box-shadow: none;
         }
 
@@ -395,20 +394,22 @@
         .poetry-card {
             display: inline-block;
             padding: clamp(30px, 5vw, 60px);
-            border: 1px solid rgba(37, 31, 40, 0.1);
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.72);
-            box-shadow: 0 16px 34px rgba(37, 31, 40, 0.08);
-            max-width: 700px;
-            text-align: left;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: rgba(38, 16, 48, 0.85);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            max-width: 720px;
+            text-align: center;
             margin-top: 30px;
+            backdrop-filter: blur(14px);
         }
         .poetry-card p {
             font-family: "Cormorant Garamond", serif;
-            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+            font-size: clamp(1.5rem, 2.8vw, 2.1rem);
             line-height: 1.8;
-            color: var(--ink);
+            color: #ffffff;
             font-style: italic;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .photo-card img {
