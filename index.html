@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruth | 3 Months Together</title>
+    <title>Ruth | Happy Girlfriends Day & New Month</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ink: #271f35;
-            --accent: #ff7aa9;
-            --accent-2: #ffd6e8;
-            --wine: #8e245f;
-            --rose: #e45f8f;
-            --sun: #f4c95d;
-            --leaf: #397d75;
-            --mint: #d8f2ec;
-            --cream: #fff8fb;
-            --lilac: #efe4ff;
-            --sky: #e2f4ff;
-            --line: rgba(39, 31, 53, 0.14);
-            --soft: rgba(255, 255, 255, 0.72);
-            --shadow: 0 22px 70px rgba(80, 31, 81, 0.18);
+            --ink: #fff0f6;
+            --accent: #ff4081;
+            --accent-2: #ff80ab;
+            --wine: #ff80ab;
+            --rose: #ff2a75;
+            --sun: #ffd54f;
+            --leaf: #26a69a;
+            --mint: #1a2634;
+            --cream: #18091e;
+            --lilac: #2a1236;
+            --sky: #1f142e;
+            --line: rgba(255, 64, 129, 0.25);
+            --soft: rgba(38, 16, 48, 0.78);
+            --shadow: 0 25px 80px rgba(0, 0, 0, 0.55);
         }
 
         * {
@@ -40,10 +40,10 @@
             font-family: "Inter", sans-serif;
             color: var(--ink);
             background:
-                radial-gradient(circle at 14% 18%, rgba(228, 95, 143, 0.3), transparent 30%),
-                radial-gradient(circle at 86% 12%, rgba(57, 125, 117, 0.24), transparent 28%),
-                radial-gradient(circle at 70% 82%, rgba(244, 201, 93, 0.24), transparent 30%),
-                linear-gradient(125deg, #fff8fb 0%, #efe4ff 40%, #e2f4ff 72%, #d8f2ec 100%);
+                radial-gradient(circle at 14% 18%, rgba(255, 42, 117, 0.38), transparent 35%),
+                radial-gradient(circle at 86% 12%, rgba(156, 39, 176, 0.35), transparent 35%),
+                radial-gradient(circle at 70% 82%, rgba(255, 213, 79, 0.22), transparent 35%),
+                linear-gradient(135deg, #120517 0%, #24092b 40%, #1a0421 72%, #2c0828 100%);
             overflow-x: hidden;
         }
 
@@ -77,8 +77,8 @@
             justify-content: space-between;
             gap: 18px;
             padding: 14px clamp(16px, 4vw, 48px);
-            border-bottom: 1px solid rgba(37, 31, 40, 0.08);
-            background: rgba(255, 248, 251, 0.78);
+            border-bottom: 1px solid rgba(255, 64, 129, 0.2);
+            background: rgba(18, 5, 23, 0.85);
             backdrop-filter: blur(18px);
         }
 
@@ -116,7 +116,7 @@
         }
 
         .topbar a {
-            color: rgba(37, 31, 40, 0.72);
+            color: rgba(255, 240, 246, 0.82);
             font-size: 0.76rem;
             font-weight: 800;
             letter-spacing: 0.08em;
@@ -222,7 +222,7 @@
         .game-panel p,
         .scripture-card p,
         .letter p {
-            color: rgba(37, 31, 40, 0.74);
+            color: rgba(255, 240, 246, 0.85);
             font-size: clamp(1rem, 1.5vw, 1.18rem);
             line-height: 1.8;
         }
@@ -262,7 +262,7 @@
         .time-card span {
             display: block;
             margin-top: 6px;
-            color: rgba(37, 31, 40, 0.62);
+            color: rgba(255, 240, 246, 0.72);
             font-size: 0.66rem;
             font-weight: 800;
             letter-spacing: 0.12em;
@@ -378,6 +378,39 @@
             min-height: 480px;
         }
 
+        .photo-card video {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            inset: 0;
+            object-fit: cover;
+            transition: transform 360ms cubic-bezier(.2,.9,.3,1), filter 240ms ease;
+            cursor: pointer;
+        }
+        .photo-card video:hover { transform: scale(1.06) rotate(-1deg); filter: brightness(1.04) saturate(1.04); }
+        
+        .poetry-section {
+            text-align: center;
+        }
+        .poetry-card {
+            display: inline-block;
+            padding: clamp(30px, 5vw, 60px);
+            border: 1px solid rgba(37, 31, 40, 0.1);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.72);
+            box-shadow: 0 16px 34px rgba(37, 31, 40, 0.08);
+            max-width: 700px;
+            text-align: left;
+            margin-top: 30px;
+        }
+        .poetry-card p {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+            line-height: 1.8;
+            color: var(--ink);
+            font-style: italic;
+        }
+
         .photo-card img {
             width: 100%;
             height: 100%;
@@ -440,6 +473,72 @@
             font-size: clamp(1.5rem, 2.4vw, 2rem);
             line-height: 1.45;
             color: var(--ink);
+        }
+
+        /* Memory Game Styles */
+        .memory-game-container {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-top: 20px;
+        }
+        .memory-card {
+            aspect-ratio: 1;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        .memory-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+        .memory-card.flipped .memory-card-inner,
+        .memory-card.matched .memory-card-inner {
+            transform: rotateY(180deg);
+        }
+        .memory-card-front, .memory-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--line);
+        }
+        .memory-card-front {
+            background: linear-gradient(135deg, rgba(255, 64, 129, 0.35), rgba(156, 39, 176, 0.4));
+            backdrop-filter: blur(10px);
+            font-size: 2.2rem;
+            color: #fff;
+            box-shadow: inset 0 0 15px rgba(255, 64, 129, 0.3);
+        }
+        .memory-card-back {
+            background: #2a1236;
+            transform: rotateY(180deg);
+        }
+        .memory-card-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .game-status {
+            margin-top: 24px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-2);
         }
 
         .game-wrap {
@@ -829,33 +928,59 @@
             <span>Ruth and Me</span>
         </div>
         <nav aria-label="Page sections">
+            <button id="musicToggleBtn" style="background: rgba(255,64,129,0.25); border: 1px solid var(--accent); color: #fff; padding: 6px 14px; border-radius: 20px; font-weight: 700; cursor: pointer; transition: all 0.3s ease;">🎵 Play Music</button>
+            <a href="#poetry">Poetry</a>
             <a href="#memories">Memories</a>
-            <a href="#game">Love tree</a>
-            <a href="#scriptures">Scriptures</a>
+            <a href="#game">Game</a>
+            <a href="#scriptures">Union</a>
         </nav>
     </header>
 
     <main>
         <section class="hero" id="top">
             <div class="hero-copy">
-                <span class="eyebrow">Three months together</span>
-                <h1>Happy 3 months, my baby Ruth.</h1>
-                <p>Three months of choosing each other, laughing at the little things, learning each other more deeply, and building something soft, faithful, and real.</p>
-                <div class="love-counter" aria-label="Three month celebration counter">
-                    <div class="time-card"><strong>3</strong><span>Months</span></div>
+                <span class="eyebrow">Welcome to August & Happy Girlfriends Day</span>
+                <h1>Happy New Month, my baby Ruth.</h1>
+                <p>A beautiful new month to love you better. Happy Girlfriends Day to the most amazing, kind, and precious girl. This is a celebration of you, and us.</p>
+                <div class="love-counter" aria-label="Girlfriends Day Celebration">
                     <div class="time-card"><strong id="daysTogether">0</strong><span>Days</span></div>
-                    <div class="time-card"><strong>1</strong><span>Love</span></div>
+                    <div class="time-card"><strong id="hoursTogether">0</strong><span>Hours</span></div>
+                    <div class="time-card"><strong id="minsTogether">0</strong><span>Mins</span></div>
+                    <div class="time-card"><strong id="secsTogether">0</strong><span>Secs</span></div>
                 </div>
                 <div class="button-row">
-                    <a class="button" href="#memories">Open our memories</a>
-                    <a class="button secondary" href="#game">Play the yes game</a>
+                    <a class="button" href="#memories">See our memories</a>
+                    <a class="button secondary" href="#game">Play a game</a>
                 </div>
             </div>
             <div class="hero-media">
-                <img src="my%20baby%20pictures/1783086978413.jpg" alt="A beautiful new picture of Ruth">
+                <img src="images/WhatsApp Image 2026-08-01 at 03.02.19.jpeg" alt="Me and Ruth">
                 <div class="hero-caption">
-                    <span class="eyebrow">For my favorite girl</span>
-                    <h1>Ruth</h1>
+                    <span class="eyebrow">My favorite person</span>
+                    <h1>Us</h1>
+                </div>
+            </div>
+        </section>
+
+        <section id="poetry" aria-labelledby="poetry-title" class="poetry-section">
+            <div class="section-heading" style="margin: 0 auto;">
+                <span class="eyebrow">Words for you</span>
+                <h2 id="poetry-title">A Sweet Poem for My Girl.</h2>
+            </div>
+            <div class="poetry-card">
+                <p>
+                    In every gentle breeze that blows,<br>
+                    My love for you just grows and grows.<br>
+                    A brand new month, a fresh new start,<br>
+                    With you forever in my heart.<br><br>
+                    Your smile brings light to all my days,<br>
+                    I cherish you in countless ways.<br>
+                    Happy Girlfriends Day, my sweet,<br>
+                    With you, my life is so complete.
+                </p>
+                <div style="margin-top: 24px; text-align: center;">
+                    <button class="button" id="generateNoteBtn" style="font-size: 0.9rem; padding: 8px 22px;">Surprise Love Note 💌</button>
+                    <p id="surpriseNoteText" style="font-family: 'Great Vibes', cursive; font-size: 1.8rem; color: var(--sun); margin-top: 16px; min-height: 2.2rem; transition: opacity 0.3s;"></p>
                 </div>
             </div>
         </section>
@@ -884,167 +1009,299 @@
 
         <section id="memories" aria-labelledby="memories-title">
             <div class="section-heading">
-                <span class="eyebrow">Our photo garden</span>
-                <h2 id="memories-title">A little gallery for the girl I adore.</h2>
-                <p>A fresh little gallery for you: newer pictures, softer memories, and one sweet reminder that every version of Ruth is worth celebrating.</p>
+                <span class="eyebrow">Our beautiful moments</span>
+                <h2 id="memories-title">A gallery of us and you.</h2>
+                <p>New pictures, sweet videos, and the soft memories we are building together.</p>
             </div>
             <div class="photo-garden">
                 <figure class="photo-card large">
-                    <img src="my%20baby%20pictures/1783086978628.jpg" alt="A new portrait picture of Ruth">
+                    <img src="images/WhatsApp Image 2026-08-01 at 03.02.20.jpeg" alt="A beautiful picture of Ruth">
                     <figcaption>My baby</figcaption>
                 </figure>
                 <figure class="photo-card tall">
-                    <img src="my%20baby%20pictures/1783086978593.jpg" alt="A new portrait picture of Ruth">
+                    <img src="images/WhatsApp Image 2026-08-01 at 03.02.22 (1).jpeg" alt="Soft beauty">
                     <figcaption>Soft beauty</figcaption>
                 </figure>
                 <figure class="photo-card">
-                    <img src="my%20baby%20pictures/1783086978413.jpg" alt="A beautiful new picture of Ruth">
+                    <img src="images/WhatsApp Image 2026-08-01 at 03.02.22 (2).jpeg" alt="So beautiful">
                     <figcaption>So beautiful</figcaption>
                 </figure>
                 <figure class="photo-card">
-                    <img src="my%20baby%20pictures/1783086978368.jpg" alt="A new picture of Ruth">
+                    <img src="images/WhatsApp Image 2026-08-01 at 03.02.22 (3).jpeg" alt="My favorite girl">
                     <figcaption>My favorite girl</figcaption>
                 </figure>
                 <figure class="photo-card large">
-                    <img src="my%20baby%20pictures/1783086978206.jpg" alt="A new landscape picture of Ruth">
-                    <figcaption>Sweet memory</figcaption>
+                    <video src="images/WhatsApp Video 2026-08-01 at 03.02.21.mp4" autoplay loop muted playsinline></video>
+                    <figcaption>Our Sweet Video</figcaption>
                 </figure>
                 <figure class="photo-card">
-                    <img src="my%20baby%20pictures/8042514acd1987472b56bdb36e1ac061.jpg" alt="A new full length picture of Ruth">
+                    <img src="images/WhatsApp Image 2026-08-01 at 03.02.22.jpeg" alt="Always loved">
                     <figcaption>Always loved</figcaption>
                 </figure>
                 <figure class="photo-card">
-                    <img src="my%20baby%20pictures/IMG-20260626-WA0026.jpg" alt="A new sweet picture of Ruth">
+                    <img src="images/WhatsApp Image 2026-08-01 at 03.02.23.jpeg" alt="Precious">
                     <figcaption>Precious</figcaption>
                 </figure>
-                <!-- Baby Ruth photo removed -->
             </div>
         </section>
 
         <section class="letter" aria-labelledby="letter-title">
             <div class="letter-photo">
-                <img src="my%20baby%20pictures/1783086978628.jpg" alt="A beautiful portrait of Ruth">
+                <img src="images/WhatsApp Image 2026-08-01 at 03.02.23 (1).jpeg" alt="A beautiful portrait of Ruth">
             </div>
             <div class="letter-copy">
-                <span class="eyebrow">My note to you</span>
-                <p id="letter-title">My baby, thank you for these three months. Thank you for your smile, your care, your patience, and the way you make love feel personal. I pray we keep growing in kindness, honesty, laughter, and God. I love you, Ruth.</p>
+                <span class="eyebrow">Happy Girlfriends Day</span>
+                <p id="letter-title">My baby, thank you for being the most amazing girlfriend. Welcome to a new month filled with new blessings, deeper love, and unending joy. I pray our union keeps growing stronger in God. I love you, Ruth.</p>
             </div>
         </section>
 
         <section id="game" aria-labelledby="game-title">
-            <div class="game-wrap">
-                <div class="tree-stage" id="treeStage" data-level="0" aria-label="Love tree game stage">
-                    <div class="tree" aria-hidden="true">
-                        <div class="branch one"></div>
-                        <div class="branch two"></div>
-                        <div class="branch three"></div>
-                        <div class="trunk"></div>
-                        <div class="leaf-cloud one"></div>
-                        <div class="leaf-cloud two"></div>
-                        <div class="leaf-cloud three"></div>
-                        <span class="heart-fruit">♥</span>
-                        <span class="heart-fruit">♥</span>
-                        <span class="heart-fruit">♥</span>
-                        <span class="heart-fruit">♥</span>
-                        <span class="heart-fruit">♥</span>
-                    </div>
-                    <div class="yes-banner" id="yesBanner">Make the love tree grow by saying yes.</div>
-                </div>
-                <div class="game-panel">
-                    <span class="eyebrow">Tiny love game</span>
-                    <h2 id="game-title">The only winning answer is yes.</h2>
-                    <p>Ruth has to keep saying yes so the tree can grow. The no button is shy; it runs away because this site is clearly on the side of love.</p>
-                    <div class="button-row">
-                        <button class="yes-button" type="button" id="yesButton">Yes, I love you</button>
-                        <button class="no-button" type="button" id="noButton">No</button>
-                    </div>
-                    <div class="score-line" id="scoreLine">Yeses collected: 0 / 3</div>
-                </div>
+            <div class="section-heading" style="text-align: center; margin: 0 auto 30px;">
+                <span class="eyebrow">Interactive Love Game</span>
+                <h2 id="game-title">Ruth's Love Memory Match</h2>
+                <p>Flip the cards to match pairs of your sweet pictures! Match all 6 pairs to unlock a special prize message.</p>
+            </div>
+            <div class="memory-game-container">
+                <div class="memory-grid" id="memoryGrid"></div>
+                <div class="game-status" id="gameStatus">Pairs Matched: <span id="matchedCount">0</span> / 6</div>
+                <button class="button" id="restartGameBtn" style="margin-top: 20px;">Play Again 💖</button>
             </div>
         </section>
 
         <section id="scriptures" aria-labelledby="scriptures-title">
             <div class="section-heading">
-                <span class="eyebrow">Scriptures of love</span>
-                <h2 id="scriptures-title">A blessing over us.</h2>
-                <p>May our love keep becoming patient, kind, truthful, forgiving, and rooted in God.</p>
+                <span class="eyebrow">Scriptures of Union</span>
+                <h2 id="scriptures-title">God's blessing over us.</h2>
+                <p>May our union be deeply rooted in His word, bringing strength, joy, and peace to our journey.</p>
             </div>
             <div class="scriptures">
                 <article class="scripture-card">
-                    <strong>1 Corinthians 13:4-7</strong>
-                    <p>Love is patient and kind. It protects, trusts, hopes, and perseveres.</p>
+                    <strong>Ecclesiastes 4:9-10</strong>
+                    <p>Two are better than one, because they have a good return for their labor: If either of them falls down, one can help the other up.</p>
                 </article>
                 <article class="scripture-card">
-                    <strong>Song of Solomon 8:7</strong>
-                    <p>Many waters cannot quench love; rivers cannot sweep it away.</p>
+                    <strong>Mark 10:9</strong>
+                    <p>Therefore what God has joined together, let no one separate.</p>
                 </article>
                 <article class="scripture-card">
-                    <strong>1 John 4:19</strong>
-                    <p>We love because He first loved us.</p>
+                    <strong>Genesis 2:24</strong>
+                    <p>That is why a man leaves his father and mother and is united to his wife, and they become one flesh.</p>
                 </article>
             </div>
         </section>
     </main>
 
-    <footer>Happy 3 months, Ruth. I love you today, and I am choosing you again.</footer>
+    <footer>Happy Girlfriends Day & Happy New Month, Ruth. I love you today, and always.</footer>
 
     <script>
         const daysTogether = document.getElementById("daysTogether");
+        const hoursTogether = document.getElementById("hoursTogether");
+        const minsTogether = document.getElementById("minsTogether");
+        const secsTogether = document.getElementById("secsTogether");
         const startDate = new Date("2026-04-03T00:00:00");
 
-        function updateDaysTogether() {
-            const difference = Date.now() - startDate.getTime();
-            daysTogether.textContent = Math.max(0, Math.floor(difference / 86400000));
+        function updateLiveCounter() {
+            const now = new Date();
+            const difference = Math.max(0, now - startDate.getTime());
+            
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+            const mins = Math.floor((difference / 1000 / 60) % 60);
+            const secs = Math.floor((difference / 1000) % 60);
+
+            if (daysTogether) daysTogether.textContent = days;
+            if (hoursTogether) hoursTogether.textContent = hours;
+            if (minsTogether) minsTogether.textContent = mins;
+            if (secsTogether) secsTogether.textContent = secs;
         }
 
-        updateDaysTogether();
+        setInterval(updateLiveCounter, 1000);
+        updateLiveCounter();
 
-        const treeStage = document.getElementById("treeStage");
-        const yesButton = document.getElementById("yesButton");
-        const noButton = document.getElementById("noButton");
-        const yesBanner = document.getElementById("yesBanner");
-        const scoreLine = document.getElementById("scoreLine");
-        let yesCount = 0;
+        // --- Web Audio Romantic Ambient Music Synth ---
+        let audioCtx = null;
+        let isPlayingMusic = false;
+        let musicTimer = null;
+        const musicToggleBtn = document.getElementById("musicToggleBtn");
 
-        const messages = [
-            "Good start. The roots heard that yes.",
-            "Again? The branches are smiling now.",
-            "Perfect. Our love tree is blooming.",
-            "She said yes again. This tree is officially spoiled.",
-            "Forever yes sounds very good on you."
+        const chordNotes = [
+            [261.63, 329.63, 392.00, 523.25], // C Major
+            [220.00, 261.63, 329.63, 440.00], // A Minor
+            [174.61, 220.00, 261.63, 349.23], // F Major
+            [196.00, 246.94, 293.66, 392.00]  // G Major
         ];
 
-        yesButton.addEventListener("click", () => {
-            yesCount += 1;
-            const level = Math.min(3, yesCount);
-            treeStage.dataset.level = String(level);
-            yesBanner.textContent = messages[Math.min(messages.length - 1, yesCount - 1)];
-            scoreLine.textContent = `Yeses collected: ${Math.min(yesCount, 3)} / 3`;
-
-            if (yesCount >= 3) {
-                yesButton.textContent = "Yes forever";
-                scoreLine.textContent = "Love tree complete. She chose yes.";
-                confettiHearts(30);
+        function playRomanticMelody() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             }
-        });
+            if (isPlayingMusic) {
+                isPlayingMusic = false;
+                musicToggleBtn.textContent = "🎵 Play Music";
+                musicToggleBtn.style.background = "rgba(255,64,129,0.25)";
+                if (musicTimer) clearInterval(musicTimer);
+                return;
+            }
 
-        function moveNoButton() {
-            const x = Math.round((Math.random() * 120) - 60);
-            const y = Math.round((Math.random() * 90) - 45);
-            noButton.style.transform = `translate(${x}px, ${y}px)`;
-            yesBanner.textContent = "No tried to escape. Please press yes.";
+            audioCtx.resume();
+            isPlayingMusic = true;
+            musicToggleBtn.textContent = "🎶 Music: Playing ❤️";
+            musicToggleBtn.style.background = "var(--rose)";
+
+            let chordIndex = 0;
+            function playChord() {
+                if (!isPlayingMusic) return;
+                const notes = chordNotes[chordIndex % chordNotes.length];
+                chordIndex++;
+
+                notes.forEach((freq, idx) => {
+                    setTimeout(() => {
+                        if (!isPlayingMusic) return;
+                        const osc = audioCtx.createOscillator();
+                        const gain = audioCtx.createGain();
+                        osc.type = "sine";
+                        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+                        gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+                        gain.gain.exponentialRampToValueAtTime(0.08, audioCtx.currentTime + 0.3);
+                        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 2.5);
+
+                        osc.connect(gain);
+                        gain.connect(audioCtx.destination);
+
+                        osc.start();
+                        osc.stop(audioCtx.currentTime + 2.6);
+                    }, idx * 320);
+                });
+            }
+
+            playChord();
+            musicTimer = setInterval(playChord, 3500);
         }
 
-        noButton.addEventListener("mouseenter", moveNoButton);
-        noButton.addEventListener("focus", moveNoButton);
-        noButton.addEventListener("click", () => {
-            moveNoButton();
-            noButton.textContent = "Try yes";
-            noButton.style.opacity = "0.76";
-        });
+        if (musicToggleBtn) {
+            musicToggleBtn.addEventListener("click", playRomanticMelody);
+        }
+
+        // --- Surprise Love Note Generator ---
+        const loveNotes = [
+            "You make my heart smile every single day. 💖",
+            "Loving you is the easiest decision I ever make.",
+            "You are my favorite place to be, Ruth.",
+            "Every moment with you feels like a sweet dream.",
+            "Happy Girlfriends Day to my prettiest princess! ✨",
+            "I thank God every day for bringing us together."
+        ];
+        const generateNoteBtn = document.getElementById("generateNoteBtn");
+        const surpriseNoteText = document.getElementById("surpriseNoteText");
+
+        if (generateNoteBtn && surpriseNoteText) {
+            generateNoteBtn.addEventListener("click", () => {
+                const randomNote = loveNotes[Math.floor(Math.random() * loveNotes.length)];
+                surpriseNoteText.style.opacity = 0;
+                setTimeout(() => {
+                    surpriseNoteText.textContent = `"${randomNote}"`;
+                    surpriseNoteText.style.opacity = 1;
+                    confettiHearts(15);
+                }, 150);
+            });
+        }
+
+        // --- Love Memory Match Game Logic ---
+        const gameImages = [
+            "images/WhatsApp Image 2026-08-01 at 03.02.19.jpeg",
+            "images/WhatsApp Image 2026-08-01 at 03.02.20.jpeg",
+            "images/WhatsApp Image 2026-08-01 at 03.02.22 (1).jpeg",
+            "images/WhatsApp Image 2026-08-01 at 03.02.22 (2).jpeg",
+            "images/WhatsApp Image 2026-08-01 at 03.02.22 (3).jpeg",
+            "images/WhatsApp Image 2026-08-01 at 03.02.23.jpeg"
+        ];
+        
+        let cardDeck = [];
+        let flippedCards = [];
+        let matchedPairs = 0;
+        let lockBoard = false;
+
+        const memoryGrid = document.getElementById("memoryGrid");
+        const matchedCountSpan = document.getElementById("matchedCount");
+        const restartGameBtn = document.getElementById("restartGameBtn");
+
+        function initMemoryGame() {
+            memoryGrid.innerHTML = "";
+            flippedCards = [];
+            matchedPairs = 0;
+            lockBoard = false;
+            matchedCountSpan.textContent = "0";
+
+            cardDeck = [...gameImages, ...gameImages].sort(() => 0.5 - Math.random());
+
+            cardDeck.forEach((imgUrl, index) => {
+                const card = document.createElement("div");
+                card.className = "memory-card";
+                card.dataset.img = imgUrl;
+                card.innerHTML = `
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front">♥</div>
+                        <div class="memory-card-back">
+                            <img src="${imgUrl}" alt="Memory ${index}">
+                        </div>
+                    </div>
+                `;
+                card.addEventListener("click", flipCard);
+                memoryGrid.appendChild(card);
+            });
+        }
+
+        function flipCard() {
+            if (lockBoard) return;
+            if (this.classList.contains("flipped") || this.classList.contains("matched")) return;
+
+            this.classList.add("flipped");
+            flippedCards.push(this);
+
+            if (flippedCards.length === 2) {
+                checkMatch();
+            }
+        }
+
+        function checkMatch() {
+            lockBoard = true;
+            const [card1, card2] = flippedCards;
+            const isMatch = card1.dataset.img === card2.dataset.img;
+
+            if (isMatch) {
+                card1.classList.add("matched");
+                card2.classList.add("matched");
+                matchedPairs++;
+                matchedCountSpan.textContent = matchedPairs;
+                confettiHearts(12);
+
+                if (matchedPairs === 6) {
+                    setTimeout(() => {
+                        alert("🎉 You won my whole heart, Ruth! Happy Girlfriends Day & Happy New Month! ❤️✨");
+                        confettiHearts(40);
+                    }, 500);
+                }
+                resetBoard();
+            } else {
+                setTimeout(() => {
+                    card1.classList.remove("flipped");
+                    card2.classList.remove("flipped");
+                    resetBoard();
+                }, 900);
+            }
+        }
+
+        function resetBoard() {
+            flippedCards = [];
+            lockBoard = false;
+        }
+
+        restartGameBtn.addEventListener("click", initMemoryGame);
+        initMemoryGame();
 
         // --- Lightbox gallery & floating hearts (romantic interactions) ---
-        const images = Array.from(document.querySelectorAll('.photo-card img, .hero-media img, .letter-photo img'));
+        const images = Array.from(document.querySelectorAll('.photo-card img, .photo-card video, .hero-media img, .letter-photo img'));
         const lightbox = document.createElement('div');
         lightbox.id = 'lightbox';
         lightbox.innerHTML = `
