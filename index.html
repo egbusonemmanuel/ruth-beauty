@@ -280,6 +280,7 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
+            order: 0;
         }
 
         .brand-icon {
@@ -315,30 +316,90 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: clamp(8px, 1.4vw, 18px);
+            gap: 3px;
+            padding: 5px;
+            border: 1px solid var(--border-silver-subtle);
+            border-radius: var(--radius-pill);
+            background: rgba(255, 255, 255, 0.035);
+            backdrop-filter: blur(14px);
+            order: 1;
         }
 
         .nav-item {
             text-decoration: none;
-            font-size: 0.78rem;
+            font-size: 0.7rem;
             font-weight: 600;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.045em;
             text-transform: uppercase;
             color: var(--text-muted);
-            padding: 6px 12px;
-            border-radius: 20px;
-            transition: var(--transition);
+            padding: 9px 11px;
+            border-radius: var(--radius-pill);
+            white-space: nowrap;
+            transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
         }
 
         .nav-item:hover {
             color: var(--white-pure);
             background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .nav-item:focus-visible,
+        .nav-toggle:focus-visible {
+            outline: 2px solid var(--white-pure);
+            outline-offset: 3px;
+        }
+
+        .nav-toggle {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            min-height: 40px;
+            padding: 8px 13px;
+            border: 1px solid var(--border-silver);
+            border-radius: var(--radius-pill);
+            background: rgba(255, 255, 255, 0.07);
+            color: var(--white-pure);
+            font: inherit;
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            cursor: pointer;
+            order: 3;
+        }
+
+        .menu-icon {
+            display: grid;
+            gap: 4px;
+            width: 16px;
+        }
+
+        .menu-icon span {
+            width: 100%;
+            height: 2px;
+            border-radius: 2px;
+            background: currentColor;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .nav-open .menu-icon span:first-child {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        .nav-open .menu-icon span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-open .menu-icon span:last-child {
+            transform: translateY(-6px) rotate(-45deg);
         }
 
         .top-controls {
             display: flex;
             align-items: center;
             gap: 10px;
+            order: 2;
         }
 
         .atmosphere-btn {
@@ -392,26 +453,54 @@
 
             .brand-box,
             .top-controls {
+                grid-column: 1;
+            }
+
+            .brand-box,
+            .nav-toggle {
                 grid-row: 1;
+            }
+
+            .brand-box {
+                justify-self: start;
+            }
+
+            .nav-toggle {
+                display: inline-flex;
+                grid-column: 2;
+                justify-self: end;
+            }
+
+            .top-controls {
+                grid-column: 1 / -1;
+                grid-row: 2;
+                justify-self: start;
             }
 
             .nav-links {
                 grid-column: 1 / -1;
-                grid-row: 2;
+                grid-row: 3;
+                display: none;
                 min-width: 0;
                 max-width: 100%;
-                overflow-x: auto;
-                overscroll-behavior-x: contain;
-                scrollbar-width: none;
-                padding-bottom: 2px;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 6px;
+                padding: 10px;
+                border-radius: 18px;
+                background: rgba(15, 15, 21, 0.97);
+                box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
             }
 
-            .nav-links::-webkit-scrollbar {
-                display: none;
+            .topbar.nav-open .nav-links {
+                display: grid;
             }
 
             .nav-item {
-                flex: 0 0 auto;
+                display: flex;
+                align-items: center;
+                min-height: 42px;
+                padding: 8px 10px;
+                background: rgba(255, 255, 255, 0.045);
             }
 
             .top-controls {
@@ -1894,30 +1983,57 @@
             }
 
             .top-controls {
-                gap: 6px;
+                gap: 8px;
+                justify-self: start;
+            }
+
+            #atmosLabel,
+            #topMusicStatus {
+                display: none;
             }
 
             .atmosphere-btn,
             .top-music-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                min-width: 40px;
+                height: 40px;
                 min-height: 38px;
-                padding: 7px 10px;
-                font-size: 0.72rem;
-                white-space: nowrap;
+                padding: 0;
+                border-radius: 50%;
             }
 
             .atmosphere-btn {
-                gap: 4px;
+                font-size: 0.9rem;
+            }
+
+            .top-music-btn {
+                gap: 0;
+            }
+
+            .nav-toggle {
+                width: 42px;
+                height: 42px;
+                min-height: 42px;
+                padding: 0;
+                border-radius: 50%;
+            }
+
+            #navToggleLabel {
+                display: none;
             }
 
             .nav-links {
-                gap: 4px;
-                margin: 0 -4px;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 7px;
             }
 
             .nav-item {
-                padding: 7px 10px;
-                font-size: 0.68rem;
-                letter-spacing: 0.04em;
+                padding: 9px 10px;
+                font-size: 0.7rem;
+                letter-spacing: 0.035em;
             }
 
             .hero {
@@ -2264,21 +2380,12 @@
             </div>
         </a>
 
-        <nav class="nav-links">
-            <a href="#videos" class="nav-item">Videos 🎬</a>
-            <a href="#timeline" class="nav-item">Our Journey</a>
-            <a href="#lovejar" class="nav-item">Love Jar 💌</a>
-            <a href="#candles" class="nav-item">Blessings 🕯️</a>
-            <a href="#quiz" class="nav-item">Quiz 👑</a>
-            <a href="#memories" class="nav-item">Gallery</a>
-        </nav>
-
         <div class="top-controls">
             <button class="atmosphere-btn" id="atmosToggleBtn" title="Toggle Floating Particles">
                 <span id="atmosIcon">✨</span>
                 <span id="atmosLabel">Stars</span>
             </button>
-            <button class="top-music-btn" id="topMusicBtn">
+            <button class="top-music-btn" id="topMusicBtn" type="button" aria-label="Toggle anniversary music">
                 <span id="topMusicStatus">Play Song</span>
                 <div class="eq-bars" id="topEqBars">
                     <span class="eq-bar"></span>
@@ -2288,6 +2395,20 @@
                 </div>
             </button>
         </div>
+
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="siteNavigation">
+            <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span id="navToggleLabel">Menu</span>
+        </button>
+
+        <nav class="nav-links" id="siteNavigation" aria-label="Main navigation">
+            <a href="#videos" class="nav-item">Videos 🎬</a>
+            <a href="#timeline" class="nav-item">Our Journey</a>
+            <a href="#lovejar" class="nav-item">Love Jar 💌</a>
+            <a href="#candles" class="nav-item">Blessings 🕯️</a>
+            <a href="#quiz" class="nav-item">Quiz 👑</a>
+            <a href="#memories" class="nav-item">Gallery</a>
+        </nav>
     </header>
 
     <main>
@@ -2987,6 +3108,34 @@
 
         topMusicBtn.addEventListener('click', toggleAudio);
         dockAudioBtn.addEventListener('click', toggleAudio);
+
+        const topbar = document.querySelector('.topbar');
+        const navToggle = document.getElementById('navToggle');
+        const navToggleLabel = document.getElementById('navToggleLabel');
+        const siteNavigation = document.getElementById('siteNavigation');
+
+        function setNavigationOpen(isOpen) {
+            topbar.classList.toggle('nav-open', isOpen);
+            navToggle.setAttribute('aria-expanded', String(isOpen));
+            navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+            navToggleLabel.textContent = isOpen ? 'Close' : 'Menu';
+        }
+
+        navToggle.addEventListener('click', () => {
+            setNavigationOpen(!topbar.classList.contains('nav-open'));
+        });
+
+        siteNavigation.addEventListener('click', (event) => {
+            if (event.target.closest('a')) setNavigationOpen(false);
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') setNavigationOpen(false);
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1050) setNavigationOpen(false);
+        });
 
         /* ==========================================================================
            2. LIVE 6-MONTH LOVE COUNTER
